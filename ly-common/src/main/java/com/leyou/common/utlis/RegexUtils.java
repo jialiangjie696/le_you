@@ -1,6 +1,4 @@
 package com.leyou.common.utlis;
-
-import com.leyou.common.utils.RegexPatterns;
 import org.apache.commons.lang3.StringUtils;
 
 /**
