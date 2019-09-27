@@ -26,6 +26,7 @@ zuul:
   prefix: /api
   routes:
     item-service: /item/**
+    upload-service: /upload/**
 
 
 ly:
