@@ -13,3 +13,5 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
       registry-fetch-interval-seconds: 5
+mapper:
+  wrap-keyword: "`{0}`"

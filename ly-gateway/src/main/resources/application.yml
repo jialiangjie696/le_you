@@ -8,7 +8,6 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
     registry-fetch-interval-seconds: 5
-
 hystrix:
   command:
     default:
@@ -27,12 +26,15 @@ zuul:
   routes:
     item-service: /item/**
     upload-service: /upload/**
-
-
+    search-service: /search/**
 ly:
   cors:
     allowedOrigins:
       - http://manage.leyou.com
+      - http://item.leyou.com
+      - http://api.leyou.com
+      - http://www.leyou.com
+      - http://127.0.0.1:9002
     allowedCredentials: true
     allowedHeaders:
       - "*"
@@ -41,8 +43,6 @@ ly:
       - POST
       - DELETE
       - PUT
-      - OPTIONS
       - HEAD
     maxAge: 360000
     filterPath: "/**"
-

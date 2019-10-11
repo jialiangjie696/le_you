@@ -37,23 +37,6 @@ public class GlobalCORSConfig {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //3) 允许的请求方式
 //        config.addAllowedMethod("OPTIONS");
 //        config.addAllowedMethod("HEAD");
@@ -66,43 +49,14 @@ public class GlobalCORSConfig {
         corsProperties.getAllowedMethods().forEach(config::addAllowedMethod);
 
 
-
-
-
-
-
-
-
-
-
         // 4）允许的头信息
 //        config.addAllowedHeader("*");
 
         config.setAllowedHeaders(corsProperties.getAllowedHeaders());
 
-
-
-
-
-
-
-
-
-
-
-
         // 5）有效期
 //        config.setMaxAge(360000L);
 //        config.setMaxAge(corsProperties.getMaxAge());
-
-
-
-
-
-
-
-
-
 
         //2.添加映射路径，我们拦截一切请求
         UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();

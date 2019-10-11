@@ -20,7 +20,7 @@ public class BrandController {
     private BrandService brandService;
 
 
-    @GetMapping("/page")
+    @GetMapping(value = "/page",name = "分类查询品牌")
     public ResponseEntity<PageResult<BrandDTO>> findBrandByPage(
 
           @RequestParam(value = "page",defaultValue = "1")  Integer page,  //当前页
@@ -37,10 +37,41 @@ public class BrandController {
     }
 
 
-    @PostMapping
+    @PostMapping(name = "新增品牌")
     public ResponseEntity<Void> saveBrand(BrandDTO brand, @RequestParam("cids")List<Long> cids){
             brandService.saveBrand(brand,cids);
             return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+
+    /**
+     *修改品牌
+     * @param brandDTO
+     * @param cids
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity<Void> update(BrandDTO brandDTO, @RequestParam("cids")List<Long> cids){
+        brandService.update(brandDTO,cids);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping(value = "/of/category",name = "根据分类id查询品牌数据")
+    public ResponseEntity<List<BrandDTO>> findBrandByCategoryId(@RequestParam("id") Long id){
+        List<BrandDTO> brandDTOList = brandService.findBrandByCategoryId(id);
+        return ResponseEntity.ok(brandDTOList);
+    }
+
+
+    /**
+     * 根据brandids查询brand对象集合
+     * @param ids
+     * @return
+     */
+    @GetMapping(value = "/list",name = "根据分类id集合查询品牌对象集合")
+    public ResponseEntity<List<BrandDTO>> findBrandByBrandIds(@RequestParam("ids") List<Long> ids){
+        List<BrandDTO> brandDTOList = brandService.findBrandByBrandIds(ids);
+        return ResponseEntity.ok(brandDTOList);
     }
 
 

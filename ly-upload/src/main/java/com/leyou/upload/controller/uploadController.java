@@ -5,11 +5,10 @@ import com.leyou.upload.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Map;
 
 @RestController
 public class uploadController {
@@ -21,8 +20,19 @@ public class uploadController {
     @PostMapping("/image")
     public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file){
 
-        //返回200并携带路径
-        return ResponseEntity.ok(this.uploadService.upload(file));
+
+           String  imageUrl =  uploadService.upload(file);
+
+        return ResponseEntity.ok(imageUrl);
+    }
+
+    @GetMapping("/signature")
+    public ResponseEntity<Map<String,Object>> signature(){
+
+        Map<String,Object>  map=  uploadService.signature();
+
+
+        return ResponseEntity.ok(map);
     }
 
 }

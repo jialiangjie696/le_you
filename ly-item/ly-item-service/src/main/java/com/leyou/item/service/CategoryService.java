@@ -33,4 +33,43 @@ public class CategoryService {
 
         return categoryDTOS;
     }
+
+    /**
+     * 根据品牌id查询分类的数据
+     * 表  select c.* tb_category c,tb_category_brand  cb  where c.id=cb.category_id and cb.brand_id=?
+     * @param id
+     * @return
+     */
+
+    public List<CategoryDTO> findCategoryByBrandId(Long id) {
+
+
+
+
+        List<Category> categoryList = categoryMapper.findCategoryByBrandId(id);
+
+        if (CollectionUtils.isEmpty(categoryList)){
+            throw new LyException(ExceptionEnum.INVALID_PARAM_ERROR);
+        }
+
+        return BeanHelper.copyWithCollection(categoryList,CategoryDTO.class);
+
+    }
+
+
+    /**
+     * 根据categoryIds查询对象
+     *
+     * @param ids
+     * @return
+     */
+    public List<CategoryDTO> findCategoryByCids(List<Long> ids) {
+
+        List<Category> categoryList = categoryMapper.selectByIdList(ids);
+        if (CollectionUtils.isEmpty(categoryList)){
+            throw new LyException(ExceptionEnum.CATEGORY_NOT_FOUND);
+        }
+
+        return  BeanHelper.copyWithCollection(categoryList, CategoryDTO.class);
+    }
 }
