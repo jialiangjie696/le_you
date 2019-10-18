@@ -7,28 +7,46 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ly-item-dto" />
-        <module name="ly-upload" />
-        <module name="ly-common" />
-        <module name="ly-gateway" />
-        <module name="ly-item-interface" />
-        <module name="ly-search" />
-        <module name="ly-item-service" />
         <module name="ly-registry" />
+        <module name="ly-auth" />
+        <module name="ly-item-interface" />
+        <module name="ly-user-service" />
+        <module name="ly-gateway" />
+        <module name="ly-item-dto" />
+        <module name="ly-user-dto" />
+        <module name="ly-user-interface" />
+        <module name="ly-common" />
+        <module name="ly-upload" />
+        <module name="ly-search" />
+        <module name="spring-Data-Redis" />
+        <module name="ly-page" />
+        <module name="ly-item-service" />
+        <module name="ly-sms" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="leyou-user" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="leyou-user" options="-parameters" />
+      <module name="ly-auth" options="-parameters" />
       <module name="ly-common" options="-parameters" />
       <module name="ly-gateway" options="-parameters" />
       <module name="ly-item" options="-parameters" />
       <module name="ly-item-dto" options="-parameters" />
       <module name="ly-item-interface" options="-parameters" />
       <module name="ly-item-service" options="-parameters" />
+      <module name="ly-page" options="-parameters" />
       <module name="ly-registry" options="-parameters" />
       <module name="ly-search" options="-parameters" />
+      <module name="ly-sms" options="-parameters" />
       <module name="ly-upload" options="-parameters" />
+      <module name="ly-user-dto" options="-parameters" />
+      <module name="ly-user-interface" options="-parameters" />
+      <module name="ly-user-service" options="-parameters" />
+      <module name="spring-Data-Redis" options="-parameters" />
     </option>
   </component>
 </project>

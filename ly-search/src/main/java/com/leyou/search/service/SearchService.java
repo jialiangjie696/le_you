@@ -12,13 +12,15 @@ import com.leyou.item.dto.*;
 import com.leyou.search.dto.GoodsDTO;
 import com.leyou.search.dto.SearchRequest;
 import com.leyou.search.pojo.Goods;
+import com.leyou.search.respository.GoodsRespository;
+import com.sun.org.apache.regexp.internal.RE;
 import org.apache.commons.lang3.StringUtils;
-
+import org.elasticsearch.cluster.DiskUsage;
 import org.elasticsearch.index.query.BoolQueryBuilder;
-
+import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
-
+import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.Aggregations;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;

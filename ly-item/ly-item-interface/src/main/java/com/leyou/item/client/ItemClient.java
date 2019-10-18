@@ -65,4 +65,30 @@ public interface ItemClient {
     @GetMapping(value = "/brand/list",name = "根据分类id集合查询品牌对象集合")
     public List<BrandDTO> findBrandByBrandIds(@RequestParam("ids") List<Long> ids);
 
+
+    /**
+     * 根据spuID查询spu对象
+     * @param
+     * @return
+     */
+    @GetMapping(value = "/spu/{id}",name = "根据spuId查询spu对象")
+    public SpuDTO findSpuDTOBySpuId(@PathVariable("id")Long id);
+
+
+    /**
+     * 根据brandId查询brand对象
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/brand/{id}",name = "根据id集合查询品牌对象")
+    public BrandDTO findBrandByBrandId(@PathVariable("id") Long id);
+
+
+    /**
+     * 根据分类id 查询规格组
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/spec/groups/of/category")
+    public List<SpecGroupDTO> findSpecGroupBycategoryId(@RequestParam("id") Long id);
 }

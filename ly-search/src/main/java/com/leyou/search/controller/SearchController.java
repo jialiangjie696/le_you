@@ -6,7 +6,6 @@ import com.leyou.search.dto.SearchRequest;
 import com.leyou.search.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,30 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-
 @RestController
 public class SearchController {
 
 
     @Autowired
     private SearchService searchService;
-
     @PostMapping("/page")
-//    @CrossOrigin(origins = "http://www.leyou.com")
-    public ResponseEntity<PageResult<GoodsDTO>> findByPage(@RequestBody SearchRequest searchRequest){
-        PageResult<GoodsDTO> pageResult =  searchService.findByPage(searchRequest);
-
+    public ResponseEntity<PageResult<GoodsDTO>>  findByPage(@RequestBody SearchRequest searchRequest){
+        PageResult<GoodsDTO> pageResult = searchService.findByPage(searchRequest);
         return ResponseEntity.ok(pageResult);
     }
 
-
     @PostMapping("/filter")
-//    @CrossOrigin(origins = "http://www.leyou.com")
-    public ResponseEntity<Map<String, List<?>>> queryFilter(@RequestBody SearchRequest searchRequest){
-        Map<String, List<?>> filterMap =  searchService.queryFilter(searchRequest);
-
+    public ResponseEntity<Map<String, List<?>>>  queryFilter(@RequestBody SearchRequest searchRequest){
+        Map<String, List<?>> filterMap = searchService.queryFilter(searchRequest);
         return ResponseEntity.ok(filterMap);
     }
-
-
 }

@@ -53,8 +53,8 @@ public class GoodsController {
 
             @RequestParam("id") Long id,
             @RequestParam("saleable") Boolean saleable
-    ){
 
+    ){
 
         goodsService.updateSaleable(id,saleable);
         return ResponseEntity.ok().build();
@@ -93,4 +93,14 @@ public class GoodsController {
         return ResponseEntity.ok().build();
     }
 
+
+    @GetMapping(value = "/spu/{id}",name = "根据spuId查询spu对象")
+    public ResponseEntity<SpuDTO> findSpuDTOBySpuId(@PathVariable("id") Long id){
+
+
+       SpuDTO spuDTO =  goodsService.findSpuDTOBySpuId(id);
+
+        return ResponseEntity.ok(spuDTO);
+
+    }
 }

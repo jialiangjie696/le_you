@@ -1,5 +1,6 @@
 package com.leyou.geteway.config;
 
+
 import com.leyou.geteway.CORSProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,14 +9,12 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import java.util.List;
 
 @Configuration
 public class GlobalCORSConfig {
 
     @Autowired
-    private CORSProperties corsProperties;
-
+    private CORSProperties prop;
     @Bean
     public CorsFilter corsFilter() {
         //1.添加CORS配置信息
@@ -25,17 +24,15 @@ public class GlobalCORSConfig {
 //        config.addAllowedOrigin("http://item.leyou.com");
 //        config.addAllowedOrigin("http://cart.leyou.com");
 //        config.addAllowedOrigin("http://pay.leyou.com");
-        List<String> allowedOrigins = corsProperties.getAllowedOrigins();
+//        List<String> allowedOrigins = prop.getAllowedOrigins();
 //        for (String allowedOrigin : allowedOrigins) {
 //            config.addAllowedOrigin(allowedOrigin);
 //        }
-
+        prop.getAllowedOrigins().forEach(config::addAllowedOrigin);
 
         //2) 是否发送Cookie信息
 //        config.setAllowCredentials(true);
-        allowedOrigins.forEach(config::addAllowedOrigin);
-
-
+        config.setAllowCredentials(prop.getAllowedCredentials());
 
         //3) 允许的请求方式
 //        config.addAllowedMethod("OPTIONS");
@@ -44,25 +41,21 @@ public class GlobalCORSConfig {
 //        config.addAllowedMethod("PUT");
 //        config.addAllowedMethod("POST");
 //        config.addAllowedMethod("DELETE");
-//        List<String> allowedMethods = corsProperties.getAllowedMethods();
-
-        corsProperties.getAllowedMethods().forEach(config::addAllowedMethod);
-
-
+//        List<String> allowedMethods = prop.getAllowedMethods();
+//        for (String allowedMethod : allowedMethods) {
+//            config.addAllowedMethod(allowedMethod);
+//        }
+        prop.getAllowedMethods().forEach(config::addAllowedMethod);
         // 4）允许的头信息
 //        config.addAllowedHeader("*");
-
-        config.setAllowedHeaders(corsProperties.getAllowedHeaders());
-
+        config.setAllowedHeaders(prop.getAllowedHeaders());
         // 5）有效期
 //        config.setMaxAge(360000L);
-//        config.setMaxAge(corsProperties.getMaxAge());
-
+        config.setMaxAge(prop.getMaxAge());
         //2.添加映射路径，我们拦截一切请求
         UrlBasedCorsConfigurationSource configSource = new UrlBasedCorsConfigurationSource();
-        configSource.registerCorsConfiguration(corsProperties.getFilterPath(), config);
-
-
+//        configSource.registerCorsConfiguration("/**", config);
+        configSource.registerCorsConfiguration(prop.getFilterPath(), config);
 
         //3.返回新的CORSFilter.
         return new CorsFilter(configSource);

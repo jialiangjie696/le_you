@@ -2,6 +2,7 @@ package com.leyou.item.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.leyou.common.constants.MQConstants;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exception.LyException;
 import com.leyou.common.utlis.BeanHelper;
@@ -12,7 +13,9 @@ import com.leyou.item.dto.SpuDetailDTO;
 import com.leyou.item.entity.*;
 import com.leyou.item.mapper.*;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +25,12 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.leyou.common.constants.MQConstants.Exchange.ITEM_EXCHANGE_NAME;
+import static com.leyou.common.constants.MQConstants.RoutingKey.ITEM_DOWN_KEY;
+import static com.leyou.common.constants.MQConstants.RoutingKey.ITEM_UP_KEY;
+
 @Service
+@Slf4j
 public class GoodsService {
 
 
@@ -132,6 +140,8 @@ public class GoodsService {
 
     }
 
+    @Autowired
+    private AmqpTemplate amqpTemplate;
     /**
      * 商品的上下架
      *     修改saleable的状态
@@ -147,7 +157,11 @@ public class GoodsService {
         spuMapper.updateByPrimaryKeySelective(spu);
 
 
+//        把更新索引库和静态页面的任务放入到MQ--RabbitMq中
+        String routingKey = saleable?ITEM_UP_KEY:ITEM_DOWN_KEY;
 
+        amqpTemplate.convertAndSend(ITEM_EXCHANGE_NAME,routingKey,id);
+        log.debug("已经成功的放入了消息"+id);
     }
 
 
@@ -233,5 +247,23 @@ public class GoodsService {
 
 
 
+
+
+    }
+
+    /**
+     * 通过spuId查询spuDTO对象
+     * @param id
+     * @return
+     */
+    public SpuDTO findSpuDTOBySpuId(Long id) {
+
+        Spu spu = spuMapper.selectByPrimaryKey(id);
+
+        if (spu==null){
+            throw new LyException(ExceptionEnum.GOODS_NOT_FOUND);
+        }
+
+        return BeanHelper.copyProperties(spu,SpuDTO.class);
     }
 }

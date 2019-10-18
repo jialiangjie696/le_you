@@ -14,6 +14,11 @@
         <module>ly-common</module>
         <module>ly-upload</module>
         <module>ly-search</module>
+        <module>ly-page</module>
+        <module>ly-sms</module>
+        <module>leyou-user</module>
+        <module>ly-user</module>
+        <module>ly-auth</module>
     </modules>
     <packaging>pom</packaging>
 

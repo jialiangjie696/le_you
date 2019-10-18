@@ -75,5 +75,16 @@ public class BrandController {
     }
 
 
+    /**
+     * 根据brandId查询brand对象
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/{id}",name = "根据id集合查询品牌对象")
+    public ResponseEntity<BrandDTO> findBrandByBrandId(@PathVariable("id") Long id){
+        BrandDTO brandDTO = brandService.findBrandByBrandId(id);
+        return ResponseEntity.ok(brandDTO);
+    }
+
 
 }
