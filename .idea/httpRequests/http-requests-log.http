@@ -1,0 +1,366 @@
+POST http://localhost:8087/login?username=lisi&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-18T032810.502.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T055850.502.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T055849.502.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T055848-1.502.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T055848.502.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T055846.502.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T053444.200.json
+
+###
+
+POST http://api.leyou.com/api/auth/login?username=zhangsan&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-17T053353.200.json
+
+###
+
+POST http://localhost:8085/register?userName=&password=1&code=111&phone=111
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-16T083026.200.json
+
+###
+
+POST http://localhost:8085/register?userName=&password=1&code=111&phone=111
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-16T081337.400.json
+
+###
+
+POST http://localhost:8085/register?userName=&password=1&code=111&phone=111
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-16T081231.200.json
+
+###
+
+GET http://localhost:8085/query?userName=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-15T084935.200.json
+
+###
+
+GET http://localhost:8085/query?userName=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-15T084717.400.json
+
+###
+
+GET http://localhost:8085/query?userName=tom1&password=123456
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-15T084601.404.json
+
+###
+
+POST http://api.leyou.com/api/search/page
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-11T062923.400.json
+
+###
+
+OPTIONS http://api.leyou.com/api/search/page
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://api.leyou.com/api/search/page
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-11T062904.400.json
+
+###
+
+POST http://localhost:8083/page
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:8083/page
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:8083/page
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-10-11T062332.400.json
+
+###
+
+GET http://localhost:8081/category/of/parent
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T091858.200.json
+
+###
+
+GET http://localhost:8081/category/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T091800.200.json
+
+###
+
+POST http://localhost:8081/category/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T091639.405.json
+
+###
+
+POST http://localhost:8081/category/of/parent
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T091603.405.json
+
+###
+
+POST http://location:8081/category/of/parent
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://location:8081/category/of/parent
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/category/of/parent?pid=0
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/category/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?pid=10
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://location:8081/catrgory/of/parent?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://location:8081/catrgory/of/parent?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://api.leyou.com/api/item/save?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074935.200.json
+
+###
+
+POST http://api.leyou.com/api/item/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074817-1.500.json
+
+###
+
+POST http://api.leyou.com/api/item/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074817.500.json
+
+###
+
+POST http://api.leyou.com/api/item/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074816.500.json
+
+###
+
+POST http://api.leyou.com/api/item/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074815.500.json
+
+###
+
+POST http://api.leyou.com/api/item/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074813.500.json
+
+###
+
+POST http://api.leyou.com/api/item/save?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074802.500.json
+
+###
+
+POST http://api.leyou.com/api/item/save?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074718.404.html
+
+###
+
+POST http://api.leyou.com/api/item/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074701.404.html
+
+###
+
+POST http://api.leyou.com/api/item/save?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074659.404.html
+
+###
+
+POST http://api.leyou.com/api/item?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T074642.404.html
+
+###
+
+POST http://localhost:8081/save2?name=小米9pro
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-09-25T044120.200.json
+
+###
+

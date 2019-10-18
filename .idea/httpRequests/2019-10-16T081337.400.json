@@ -1,0 +1,94 @@
+{
+  "timestamp": "2019-10-16T12:13:37.518+0000",
+  "status": 400,
+  "error": "Bad Request",
+  "errors": [
+    {
+      "codes": [
+        "NotNull.user.username",
+        "NotNull.username",
+        "NotNull.java.lang.String",
+        "NotNull"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "user.username",
+            "username"
+          ],
+          "arguments": null,
+          "defaultMessage": "username",
+          "code": "username"
+        }
+      ],
+      "defaultMessage": "不能为null",
+      "objectName": "user",
+      "field": "username",
+      "rejectedValue": null,
+      "bindingFailure": false,
+      "code": "NotNull"
+    },
+    {
+      "codes": [
+        "Pattern.user.phone",
+        "Pattern.phone",
+        "Pattern.java.lang.String",
+        "Pattern"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "user.phone",
+            "phone"
+          ],
+          "arguments": null,
+          "defaultMessage": "phone",
+          "code": "phone"
+        },
+        [],
+        {
+          "defaultMessage": "^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\\d{8}$",
+          "arguments": null,
+          "codes": [
+            "^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\\d{8}$"
+          ]
+        }
+      ],
+      "defaultMessage": "手机号格式不正确",
+      "objectName": "user",
+      "field": "phone",
+      "rejectedValue": "111",
+      "bindingFailure": false,
+      "code": "Pattern"
+    },
+    {
+      "codes": [
+        "Length.user.password",
+        "Length.password",
+        "Length.java.lang.String",
+        "Length"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "user.password",
+            "password"
+          ],
+          "arguments": null,
+          "defaultMessage": "password",
+          "code": "password"
+        },
+        30,
+        4
+      ],
+      "defaultMessage": "密码格式不正确",
+      "objectName": "user",
+      "field": "password",
+      "rejectedValue": "1",
+      "bindingFailure": false,
+      "code": "Length"
+    }
+  ],
+  "message": "Validation failed for object='user'. Error count: 3",
+  "path": "/register"
+}

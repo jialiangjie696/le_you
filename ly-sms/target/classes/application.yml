@@ -1,0 +1,19 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 127.0.0.1
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+ly:
+  sms:
+    accessKeyID: LTAI5LVOqTqFs7bZ # 你自己的accessKeyId
+    accessKeySecret: 6qzkNqTKFUE4FlKS58riCO09TDn5n5 # 你自己的AccessKeySecret
