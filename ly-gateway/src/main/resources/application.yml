@@ -29,6 +29,11 @@ zuul:
     search-service: /search/**
     user-service: /user/**
     auth-service: /auth/**
+    cart-service: /cart/**
+    order-service:
+      path: /order/**
+      serviceId: order-service
+      strip-prefix: false
   sensitive-headers:
 ly:
   cors:
@@ -49,3 +54,22 @@ ly:
       - HEAD
     maxAge: 360000
     filterPath: "/**"
+
+  jwt:
+    pubKeyPath: F:\class-103-1\ssh\id_rsa.pub # 公钥地址
+    priKeyPath: F:\class-103-1\ssh\id_rsa # 私钥地址
+    user:
+      expire: 30 # 过期时间,单位分钟
+      cookieName: LY_TOKEN # cookie名称
+      cookieDomain: leyou.com # cookie的域
+
+
+
+  filter:
+    allowPaths:
+      - /api/auth/login
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

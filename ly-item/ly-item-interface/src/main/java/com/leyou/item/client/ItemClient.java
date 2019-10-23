@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @FeignClient(value = "item-service")
 public interface ItemClient {
@@ -91,4 +92,12 @@ public interface ItemClient {
      */
     @GetMapping(value = "/spec/groups/of/category")
     public List<SpecGroupDTO> findSpecGroupBycategoryId(@RequestParam("id") Long id);
+
+    @GetMapping(value = "/sku/list",name = "根据skuid的集合获取sku集合的信息")
+    public List<SkuDTO> findSkusBySkuids(@RequestParam("ids")List<Long> ids);
+
+
+    @PutMapping(value = "/stock/minus",name = "根据skuId减库存")
+    public void minusStock(@RequestBody Map<Long ,Integer> skuNumMap);
+
 }

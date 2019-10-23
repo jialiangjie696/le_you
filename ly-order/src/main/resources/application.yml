@@ -1,0 +1,18 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: order-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql:///leyou-103?characterEncoding=utf-8
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+ly:
+  worker:
+    workerId: 1
+    dataCenterId: 1

@@ -23,6 +23,7 @@ import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.leyou.common.constants.MQConstants.Exchange.ITEM_EXCHANGE_NAME;
@@ -44,7 +45,27 @@ public class GoodsService {
     @Autowired
     private CategoryMapper categoryMapper;
 
+    @Autowired
+    private SkuMapper skuMapper;
 
+    /**
+     * 减库存  根据skuId
+     * @param skuNumMap
+     */
+
+    public void minusStock(Map<Long, Integer> skuNumMap) {
+        try {
+            for (Long skuId : skuNumMap.keySet()) {
+                Sku sku = skuMapper.selectByPrimaryKey(skuId);
+                Integer num = skuNumMap.get(skuId);
+                sku.setStock(sku.getStock()-num);
+                skuMapper.updateByPrimaryKeySelective(sku);
+                //            update tb_sku set stock = 原库存-num where id=?
+            }
+        } catch (Exception e) {
+            throw new LyException(ExceptionEnum.STOCK_NOT_ENOUGH_ERROR);
+        }
+    }
 
 
     public PageResult<SpuDTO> findSpuByPage(Integer page, Integer rows, String key, Boolean saleable) {
@@ -101,9 +122,6 @@ public class GoodsService {
     @Autowired
     private SpuDetailMapper spuDetailMapper;
 
-
-    @Autowired
-    private SkuMapper skuMapper;
 
     /**
      * 保存商品   涉及到三张表
@@ -265,5 +283,20 @@ public class GoodsService {
         }
 
         return BeanHelper.copyProperties(spu,SpuDTO.class);
+    }
+
+
+    /**
+     * 通过skuids查询skus
+     * @param ids
+     * @return
+     */
+    public List<SkuDTO> findSkusBySkuids(List<Long> ids) {
+
+        List<Sku> skus = skuMapper.selectByIdList(ids);
+        if (CollectionUtils.isEmpty(skus)){
+            throw new LyException(ExceptionEnum.GOODS_NOT_FOUND);
+        }
+        return BeanHelper.copyWithCollection(skus,SkuDTO.class);
     }
 }

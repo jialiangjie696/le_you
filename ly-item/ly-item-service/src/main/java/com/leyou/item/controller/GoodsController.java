@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * spu和sku共用一个controller
@@ -102,5 +103,22 @@ public class GoodsController {
 
         return ResponseEntity.ok(spuDTO);
 
+    }
+
+    @GetMapping(value = "/sku/list",name = "根据skuid的集合获取sku集合的信息")
+    public ResponseEntity<List<SkuDTO>> findSkusBySkuids(@RequestParam("ids")List<Long> ids){
+
+
+
+       List<SkuDTO> skuDTOS =  goodsService.findSkusBySkuids(ids);
+
+        return ResponseEntity.ok(skuDTOS);
+
+    }
+
+    @PutMapping(value = "/stock/minus",name = "根据skuId减库存")
+    public ResponseEntity<Void> minusStock(@RequestBody Map<Long ,Integer> skuNumMap){
+        goodsService.minusStock(skuNumMap);
+        return ResponseEntity.ok().build();
     }
 }
